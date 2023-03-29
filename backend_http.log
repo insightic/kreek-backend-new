@@ -1,1 +1,205 @@
 Listening at http://localhost:8080
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userEmail: 'test',
+    userPassword: 'test'
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userEmail: 'test2',
+    userPassword: 'test2'
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]
+[
+  {
+    _id: new ObjectId("642304c3e25c280bbd39d90e"),
+    userId: 1,
+    userEmail: 'test',
+    userPassword: 'test',
+    projects: [ [Object] ]
+  },
+  {
+    _id: new ObjectId("64230575e25c280bbd39d90f"),
+    userId: 2,
+    userEmail: 'test2',
+    userPassword: 'test2',
+    projects: [ [Object] ]
+  }
+]

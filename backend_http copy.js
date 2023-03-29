@@ -9,69 +9,43 @@ app.use(
         extended: true
     })
 )
+
 app.use(express.json())
 
 app.post('/test', async (req, res) => {
-    res.send("hello world");
-})
-
-app.post('/newUser', async (req, res) => {
-    const result = await db_smartcontract.newUser(req.body.userId, req.body.userEmail, req.body.userPassword, req.body.projects);
-    res.send(result);
+    
+    res.send("hello");
 })
 
 app.post('/newProject', async (req, res) => {
-    const result = await db_smartcontract.newProject(req.body.userEmail, req.body.userPassword, req.body.projectId, req.body.projectName, req.body.projectType, req.body.smartContracts, req.body.overallCodeQuality, req.body.explanation, req.body.securityAnalysis);
+    const result = await db_smartcontract.newProject(req.body.smartContractId, req.body.projectName, req.body.projectType, req.body.smartContracts, req.body.overallCodeQuality, req.body.explanation, req.body.securityAnalysis);
     res.send(result);
 })
 
-app.post('/getAllProjects', async (req, res) => {
-    const result = await db_smartcontract.getAllProjects(req.body.userEmail, req.body.userPassword);
+app.post('/getProjectName', async (req, res) => {
+    const result = await db_smartcontract.getProjectName(req.body.smartContractId);
     res.send(result);
 })
 
-app.post('/getAll', async (req, res) => {
-    const result = await db_smartcontract.getAll();
+app.post('/getContracts', async (req, res) => {
+    const result = await db_smartcontract.getSourceCode(req.body.smartContractId);
     res.send(result);
 })
 
-app.post('/getAllUsers', async (req, res) => {
-    const result = await db_smartcontract.getAllUsers();
+app.post('/getOverallCodeQualityScore', async (req, res) => {
+    const result = await db_smartcontract.getOverallCodeQualityScore(req.body.smartContractId);
     res.send(result);
 })
 
+app.post('/getCodeExplanation', async (req, res) => {
+    const result = await db_smartcontract.getCodeExplanation(req.body.smartContractId);
+    res.send(result);
+})
 
-
-// app.post('/getProjectDetails', async (req, res) => {
-//     const result = await db_smartcontract.getProjectDetails(req.body.projectId);
-//     console.log(result)
-//     res.send(result);
-// })
-
-// app.post('/getProjectName', async (req, res) => {
-//     const result = await db_smartcontract.getProjectName(req.body.smartContractId);
-//     res.send(result);
-// })
-
-// app.post('/getContracts', async (req, res) => {
-//     const result = await db_smartcontract.getSourceCode(req.body.smartContractId);
-//     res.send(result);
-// })
-
-// app.post('/getOverallCodeQualityScore', async (req, res) => {
-//     const result = await db_smartcontract.getOverallCodeQualityScore(req.body.smartContractId);
-//     res.send(result);
-// })
-
-// app.post('/getCodeExplanation', async (req, res) => {
-//     const result = await db_smartcontract.getCodeExplanation(req.body.smartContractId);
-//     res.send(result);
-// })
-
-// app.post('/getSecurityRisks', async (req, res) => {
-//     const result = await db_smartcontract.getSecurityRisks(req.body.smartContractId);
-//     res.send(result);
-// })
+app.post('/getSecurityRisks', async (req, res) => {
+    const result = await db_smartcontract.getSecurityRisks(req.body.smartContractId);
+    res.send(result);
+})
 
 // app.post('/newNFT', async (req, res) => {
 //     const nft = {
