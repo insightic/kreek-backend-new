@@ -1,5 +1,6 @@
 const express = require('express')
 const db_smartcontract = require('./database/service/backend_db_smartcontract')
+const db_assessment = require('./database/service/backend_db_assessment')
 
 const app = express()
 const port = 8080
@@ -40,7 +41,15 @@ app.post('/getAllUsers', async (req, res) => {
     res.send(result);
 })
 
+app.post('/newAssessment', async (req, res) => {
+    const result = await db_assessment.newAssessment(req.body.projectId, req.body.data, req.body.score, req.body.codeQuality, req.body.securityAnalysis, req.body.explanation);
+    res.send(result);
+})
 
+app.post('/getAssessmentByProjectId', async (req, res) => {
+    const result = await db_assessment.getAssessmentByProjectId(req.body.projectId);
+    res.send(result);
+})
 
 // app.post('/getProjectDetails', async (req, res) => {
 //     const result = await db_smartcontract.getProjectDetails(req.body.projectId);
