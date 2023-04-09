@@ -74,6 +74,43 @@ async function newProject(userEmail, userPassword, projectId, projectName, proje
     return result;
 }
 
+async function createNewProject(userEmail, userPassword, projectId, name, types, tags, description, smartContracts, supportingMaterials) {
+    let result = { status: 100 };
+    try {
+      const project = {
+        projectId,
+        name,
+        types,
+        tags,
+        description,
+        smartContracts,
+        supportingMaterials,
+      };
+  
+      // connect to the database and insert the new project
+      await mongodb_client.connect();
+  
+      // find the user's project list and add the new project
+      let projectList = await collection.findOne({ userEmail, userPassword });
+      projectList = projectList.projects || [];
+      projectList.push(project);
+  
+      // update the user's project list with the new project
+      await collection.updateOne(
+        { userEmail, userPassword },
+        { $set: { projects: projectList } }
+      );
+  
+      // close the database connection
+      await client.close();
+    } catch (error) {
+      console.log('Error creating new project:', error);
+      result = { status: 0 };
+    }
+  
+    return result;
+  }
+
 async function getAllProjects(userEmail, userPassword) {
     try {
         await mongodb_client.connect();

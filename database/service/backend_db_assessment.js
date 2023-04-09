@@ -77,9 +77,9 @@ async function getAssessmentByProjectId(projectId) {
 }
 
 
-const db_project = {
+const db_assessment = {
     newAssessment: newAssessment,
     getAssessmentByProjectId: getAssessmentByProjectId,
 }
 
-module.exports = db_project;
+module.exports = db_assessment;
