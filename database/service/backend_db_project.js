@@ -1,3 +1,4 @@
+const fs = require('fs');
 const {MongoClient, Double} = require('mongodb');
 const {InfluxDB} = require('@influxdata/influxdb-client');
 require('dotenv').config({ path: './config/.env' });
@@ -35,7 +36,7 @@ async function newProject(projectId, name, types, tags, description, smartContra
     }
 
     // close the database connection
-    await client.close();
+    await mongodb_client.close();
     return result;
 }
 
@@ -54,9 +55,17 @@ async function getProjectByProjectId(projectId) {
         };
 
         const project = await project_collection.findOne({"projectId": projectId}, projection);
-        var result = null;
+        var result = { status: 500 };
 
         if (project != null) {
+            // read smart contracts
+            codes = []
+            for (let i = 0; i < project.smartContracts.length; i++) {
+                filePath = project.smartContracts[i].url
+                const data = await fs.promises.readFile(filePath, 'utf8');
+                codes.push(data)
+            }
+
             result = {
                 status: 200,
                 projectId: project.projectId,
@@ -64,6 +73,7 @@ async function getProjectByProjectId(projectId) {
                 types: project.types,
                 tags: project.tags,
                 description: project.description,
+                codes,
             };
         }
         

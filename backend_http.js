@@ -1,6 +1,7 @@
 const express = require('express')
 const db_smartcontract = require('./database/service/backend_db_smartcontract')
 const db_assessment = require('./database/service/backend_db_assessment')
+const db_project = require('./database/service/backend_db_project')
 
 const app = express()
 const port = 8080
@@ -16,18 +17,13 @@ app.post('/test', async (req, res) => {
     res.send("hello world");
 })
 
-app.post('/newUser', async (req, res) => {
-    const result = await db_smartcontract.newUser(req.body.userId, req.body.userEmail, req.body.userPassword, req.body.projects);
-    res.send(result);
-})
-
 app.post('/newProject', async (req, res) => {
-    const result = await db_smartcontract.newProject(req.body.userEmail, req.body.userPassword, req.body.projectId, req.body.projectName, req.body.projectType, req.body.smartContracts, req.body.overallCodeQuality, req.body.explanation, req.body.securityAnalysis);
+    const result = await db_project.newProject(req.body.projectId, req.body.name, req.body.types, req.body.tags, req.body.description, req.body.smartContracts, req.body.supportingMaterials);
     res.send(result);
 })
 
-app.post('/getAllProjects', async (req, res) => {
-    const result = await db_smartcontract.getAllProjects(req.body.userEmail, req.body.userPassword);
+app.post('/getProjectByProjectId', async (req, res) => {
+    const result = await db_project.getProjectByProjectId(req.body.projectId);
     res.send(result);
 })
 
@@ -42,7 +38,7 @@ app.post('/getAllUsers', async (req, res) => {
 })
 
 app.post('/newAssessment', async (req, res) => {
-    const result = await db_assessment.newAssessment(req.body.projectId, req.body.data, req.body.score, req.body.codeQuality, req.body.securityAnalysis, req.body.explanation);
+    const result = await db_assessment.newAssessment(req.body.projectId, req.body.date, req.body.score, req.body.codeQuality, req.body.securityAnalysis, req.body.explanation);
     res.send(result);
 })
 
