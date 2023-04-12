@@ -36,7 +36,7 @@ async function newProject(projectId, name, types, tags, description, smartContra
     }
 
     // close the database connection
-    await mongodb_client.close();
+    // await mongodb_client.close();
     return result;
 }
 
@@ -61,9 +61,10 @@ async function getProjectByProjectId(projectId) {
             // read smart contracts
             codes = []
             for (let i = 0; i < project.smartContracts.length; i++) {
+                fileName = project.smartContracts[i].contractName
                 filePath = project.smartContracts[i].url
                 const data = await fs.promises.readFile(filePath, 'utf8');
-                codes.push(data)
+                codes.push({fileName, data})
             }
 
             result = {
@@ -77,7 +78,7 @@ async function getProjectByProjectId(projectId) {
             };
         }
         
-        await mongodb_client.close();
+        // await mongodb_client.close();
         return result;
     }
     catch (error) {

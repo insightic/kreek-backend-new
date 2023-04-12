@@ -3,6 +3,10 @@ const db_smartcontract = require('./database/service/backend_db_smartcontract')
 const db_assessment = require('./database/service/backend_db_assessment')
 const db_project = require('./database/service/backend_db_project')
 
+// CORS
+const cors = require('cors')
+
+
 const app = express()
 const port = 8080
 
@@ -12,6 +16,9 @@ app.use(
     })
 )
 app.use(express.json())
+
+// CORS
+app.use(cors())
 
 app.post('/test', async (req, res) => {
     res.send("hello world");
