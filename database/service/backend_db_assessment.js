@@ -18,7 +18,7 @@ async function newAssessment(projectId, date, score, codeQuality, securityAnalys
             date: date,
             score: score,
             codeQuality: codeQuality,
-            security_analysis: securityAnalysis,
+            securityAnalysis: securityAnalysis,
             explanation: explanation
         }
 
@@ -34,7 +34,7 @@ async function newAssessment(projectId, date, score, codeQuality, securityAnalys
         result = {'status': 0};
     }
 
-    await mongodb_client.close();
+    // await mongodb_client.close();
     return result;
 }
 
@@ -53,6 +53,7 @@ async function getAssessmentByProjectId(projectId) {
 
         const assessment = await assessment_collection.findOne({"projectId": projectId}, projection);
         var result = null;
+        console.log(assessment);
 
         if (assessment != null) {
             result = {
@@ -65,7 +66,7 @@ async function getAssessmentByProjectId(projectId) {
             };
         }
         
-        await mongodb_client.close();
+        // await mongodb_client.close();
         return result;
     }
     catch (error) {
