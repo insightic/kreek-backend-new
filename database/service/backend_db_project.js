@@ -10,7 +10,7 @@ const mongodb_db = "kreek_test";
 const collection = "project";
 
 
-async function newProject(projectId, name, types, tags, description, smartContracts, supportingMaterials) {
+async function newProject(projectId, name, types, tags, description, smartContracts, supportingMaterials, codeSimilarity) {
     let result = { status: 100 };
 
     try {
@@ -22,6 +22,7 @@ async function newProject(projectId, name, types, tags, description, smartContra
             description,
             smartContracts,
             supportingMaterials,
+            codeSimilarity,
         };
   
         // connect to the database and insert the new project
@@ -52,6 +53,7 @@ async function getProjectByProjectId(projectId) {
             description: 1,
             smartContracts: 1, 
             supportingMaterials: 1,
+            codeSimilarity: 1,
         };
 
         const project = await project_collection.findOne({"projectId": projectId}, projection);
@@ -74,6 +76,7 @@ async function getProjectByProjectId(projectId) {
                 types: project.types,
                 tags: project.tags,
                 description: project.description,
+                codeSimilarity: project.codeSimilarity,
                 codes,
             };
         }

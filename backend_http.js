@@ -25,7 +25,7 @@ app.post('/test', async (req, res) => {
 })
 
 app.post('/newProject', async (req, res) => {
-    const result = await db_project.newProject(req.body.projectId, req.body.name, req.body.types, req.body.tags, req.body.description, req.body.smartContracts, req.body.supportingMaterials);
+    const result = await db_project.newProject(req.body.projectId, req.body.name, req.body.types, req.body.tags, req.body.description, req.body.smartContracts, req.body.supportingMaterials, req.body.codeSimilarity);
     res.send(result);
 })
 
