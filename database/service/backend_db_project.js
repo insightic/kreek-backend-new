@@ -10,7 +10,10 @@ const mongodb_db = "kreek_test";
 const collection = "project";
 
 
-async function newProject(projectId, name, types, tags, description, smartContracts, supportingMaterials, codeSimilarity) {
+// Projection is somehow not working, need to fix this in the future.
+
+
+async function newProject(projectId, name, types, tags, description, smartContracts, supportingMaterials, codeSimilarity, icon) {
     let result = { status: 100 };
 
     try {
@@ -23,6 +26,7 @@ async function newProject(projectId, name, types, tags, description, smartContra
             smartContracts,
             supportingMaterials,
             codeSimilarity,
+            icon
         };
   
         // connect to the database and insert the new project
@@ -92,12 +96,52 @@ async function getProjectByProjectId(projectId) {
     }
 }
 
+async function getAllProjects() {
+    try {
+        await mongodb_client.connect();
+        const project_collection = mongodb_client.db(mongodb_db).collection(collection);
+        const projection = {
+            projectId: 1,
+            name: 1,
+            icon: 1,
+        };
 
+        const project_list = await project_collection.find({}, projection).toArray();
+        var result = { status: 500 };
+
+        if (project_list != null) {
+            // read smart contracts
+            const return_list = []
+            for (const project of project_list) {
+                return_list.push({
+                    projectId: project.projectId,
+                    name: project.name,
+                    icon: project.icon
+                })
+            } 
+
+            result = {
+                status: 200,
+                return_list
+            };
+        }
+        
+        // await mongodb_client.close();
+        return result;
+    }
+    catch (error) {
+        console.log("get all projects error!")
+        console.log(error)
+        result = {'status': 500};
+        return result;
+    }
+}
 
 
 const db_project = {
     newProject,
     getProjectByProjectId,
+    getAllProjects,
 }
 
 module.exports = db_project;

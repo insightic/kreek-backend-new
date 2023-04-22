@@ -25,12 +25,17 @@ app.post('/test', async (req, res) => {
 })
 
 app.post('/newProject', async (req, res) => {
-    const result = await db_project.newProject(req.body.projectId, req.body.name, req.body.types, req.body.tags, req.body.description, req.body.smartContracts, req.body.supportingMaterials, req.body.codeSimilarity);
+    const result = await db_project.newProject(req.body.projectId, req.body.name, req.body.types, req.body.tags, req.body.description, req.body.smartContracts, req.body.supportingMaterials, req.body.codeSimilarity, req.body.icon);
     res.send(result);
 })
 
 app.post('/getProjectByProjectId', async (req, res) => {
     const result = await db_project.getProjectByProjectId(req.body.projectId);
+    res.send(result);
+})
+
+app.post('/getAllProjects', async (req, res) => {
+    const result = await db_project.getAllProjects();
     res.send(result);
 })
 
