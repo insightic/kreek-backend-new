@@ -5,7 +5,7 @@ require('dotenv').config({ path: './config/.env' });
 
 const mongodb_uri = `mongodb://localhost:27017/`;
 const mongodb_client = new MongoClient(mongodb_uri);
-const mongodb_db = "kreek_test";
+const mongodb_db = "kreek";
 const collection = "assessment";
 
 
